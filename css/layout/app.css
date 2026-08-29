@@ -1,0 +1,122 @@
+
+/* =====================================================
+                    APP LAYOUT
+===================================================== */
+
+.app{
+    display:flex;
+     flex-direction:row;
+    min-height:100vh;
+    background:var(--color-background);
+}
+
+.main{
+    flex:1;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    background:var(--color-background);
+}
+
+
+/* =====================================================
+                    DESKTOP
+===================================================== */
+
+@media (min-width:993px){
+
+    .sidebar{
+        position:sticky;
+        top:0;
+        height:100vh;
+        flex-shrink:0;
+    }
+.main{
+    flex:1;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    background:var(--color-background);
+}
+    
+}
+
+
+/* =====================================================
+                    TABLET
+===================================================== */
+
+@media (max-width:992px){
+
+    .sidebar{
+
+        width:220px;
+
+    }
+
+}
+
+
+/* =====================================================
+                    MOBILE
+===================================================== */
+
+@media (max-width:768px){
+
+    .app{
+
+        display:block;
+
+    }
+
+    .sidebar{
+
+        position:fixed;
+
+        top:0;
+
+       transform:translateX(100%);
+       transform:translateX(0);
+
+        width:280px;
+
+        height:100vh;
+
+        z-index:var(--z-fixed);
+
+        transition:right var(--transition-normal);
+
+        box-shadow:var(--shadow-lg);
+
+    }
+
+    .sidebar--open{
+
+        right:0;
+
+    }
+
+    .main{
+
+        width:100%;
+
+    }
+
+}
+
+
+/* =====================================================
+                    SMALL MOBILE
+===================================================== */
+
+@media (max-width:576px){
+
+    .sidebar{
+
+        width:100%;
+
+        max-width:320px;
+
+    }
+
+}

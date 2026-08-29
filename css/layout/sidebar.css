@@ -1,0 +1,355 @@
+/* ========================================
+   SIDEBAR LAYOUT
+======================================== */
+
+.sidebar {
+    width: var(--sidebar-width);
+    min-height: 100vh;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: var(--space-6);
+
+    background-color: var(--color-surface);
+    border-left: 1px solid var(--color-border);
+
+    position: sticky;
+    top: 0;
+
+    overflow-y: auto;
+
+    transition:
+        width var(--transition-normal),
+        transform var(--transition-normal);
+}
+
+
+/* ========================================
+   SIDEBAR BRAND
+======================================== */
+
+.sidebar__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+
+    margin-bottom: var(--space-8);
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.sidebar__logo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--color-primary);
+    color: white;
+
+    border-radius: var(--radius-md);
+
+    font-weight: 700;
+}
+
+.sidebar__logo img {
+    width: 44px;
+    height: 44px;
+    display: block;
+}
+
+
+/* ========================================
+   BRAND CONTENT
+======================================== */
+
+.sidebar__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.sidebar__title {
+    color: var(--color-text);
+
+    font-family: inherit;
+    font-size: var(--fs-xl);
+    font-weight: 700;
+}
+
+.sidebar__subtitle {
+    color: var(--color-text-secondary);
+    font-size: var(--fs-xs);
+}
+
+
+/* ========================================
+   BADGE
+======================================== */
+
+.sidebar__badge {
+    margin-right: auto;
+
+    padding: 4px 8px;
+
+    border-radius: var(--radius-full);
+
+    font-size: var(--fs-xs);
+}
+
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: var(--radius-full);
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.sidebar__nav {
+    margin-top: 20px;
+}
+
+.sidebar__list {
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+}
+
+.sidebar__item {
+    margin-bottom: var(--space-2);
+}
+
+
+/* ========================================
+   NAVIGATION LINK
+======================================== */
+
+.sidebar__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+
+    padding: var(--space-3) var(--space-4);
+
+    border-radius: var(--radius-md);
+
+    color: var(--color-text);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background var(--transition-normal),
+        color var(--transition-normal),
+        transform var(--transition-fast);
+}
+
+.sidebar__link:hover {
+    background-color: #EEF2FF;
+    color: var(--color-primary);
+
+    transform: translateX(-4px);
+}
+
+
+/* ========================================
+   NAVIGATION ICON
+======================================== */
+
+.sidebar__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar__icon img {
+    width: 20px;
+    height: 20px;
+
+    display: block;
+}
+
+
+/* ========================================
+   ACTIVE NAVIGATION LINK
+======================================== */
+
+.sidebar__link--active {
+    background-color: var(--color-primary);
+    color: #fff;
+
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+}
+
+.sidebar__link--active:hover {
+    background-color: var(--color-primary-hover);
+    color: white;
+
+    transform: translateX(-4px);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 220px;
+        padding: var(--space-5);
+    }
+
+    .sidebar__title {
+        font-size: var(--fs-lg);
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 260px;
+        height: 100vh;
+
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        transform: translateX(100%);
+
+        z-index: var(--z-fixed);
+
+        box-shadow: var(--shadow-lg);
+    }
+
+    .sidebar--open {
+        transform: translateX(0);
+    }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 240px;
+        padding: var(--space-4);
+    }
+}
+
+
+/* ========================================
+   SIDEBAR COLLAPSED
+======================================== */
+
+.sidebar--collapsed {
+    width: 80px;
+
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+}
+
+
+/* ========================================
+   COLLAPSED BRAND
+======================================== */
+
+.sidebar--collapsed .sidebar__brand {
+    justify-content: center;
+}
+
+.sidebar--collapsed .sidebar__content {
+    display: none;
+}
+
+.sidebar--collapsed .sidebar__badge {
+    display: none;
+}
+
+
+/* ========================================
+   COLLAPSED NAVIGATION
+======================================== */
+
+.sidebar--collapsed .sidebar__link {
+    justify-content: center;
+    gap: 0;
+
+    padding: var(--space-3);
+}
+
+.sidebar--collapsed .sidebar__link span:not(.sidebar__icon) {
+    display: none;
+}
+
+
+/* ========================================
+   COLLAPSED ICON
+======================================== */
+
+.sidebar--collapsed .sidebar__icon {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.sidebar--collapsed .sidebar__icon img {
+    width: 20px;
+    height: 20px;
+
+    display: block;
+}
+
+
+/* ========================================
+   COLLAPSED HOVER
+======================================== */
+
+.sidebar--collapsed .sidebar__link:hover {
+    transform: none;
+}
+
+
+/* ========================================
+   COLLAPSED ACTIVE
+======================================== */
+
+.sidebar--collapsed .sidebar__link--active {
+    transform: none;
+}

@@ -1,0 +1,1394 @@
+/* =====================================================
+   HEADER LAYOUT
+===================================================== */
+
+.header {
+    width: 100%;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: inherit;
+    background: var(--color-surface);
+    padding: 0 var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+
+/* =====================================================
+   HEADER GROUPS
+===================================================== */
+
+.header__right,
+.header__left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+
+/* =====================================================
+   HEADER BUTTONS
+===================================================== */
+
+.header__menu-btn,
+.header__notification,
+.header__theme-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radius-md);
+    background: transparent;
+    transition:
+        background-color var(--transition-normal),
+        transform var(--transition-fast);
+}
+
+.header__menu-btn:hover,
+.header__notification:hover,
+.header__theme-btn:hover {
+    background: var(--color-primary-light);
+}
+
+.header__menu-btn:active,
+.header__notification:active,
+.header__theme-btn:active {
+    transform: scale(0.94);
+}
+
+.header__menu-btn img,
+.header__notification img,
+.header__theme-btn img {
+    width: 20px;
+    height: 20px;
+    display: block;
+    transition: transform var(--transition-fast);
+}
+
+.header__menu-btn:hover img,
+.header__notification:hover img,
+.header__theme-btn:hover img {
+    transform: scale(1.12);
+}
+
+
+/* =====================================================
+   HEADER SEARCH
+===================================================== */
+
+.header__search {
+    position: relative;
+    width: 420px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0 var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition:
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+.header__search:hover {
+    border-color: var(--color-primary);
+}
+
+.header__search:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.10);
+}
+
+
+/* =====================================================
+   SEARCH INPUT
+===================================================== */
+
+.header__search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+}
+
+.header__search-input::placeholder {
+    color: var(--color-text-secondary);
+    transition: opacity 0.3s;
+}
+
+.header__search:focus-within .header__search-input::placeholder {
+    opacity: 0.45;
+}
+
+
+/* =====================================================
+   SEARCH ICON
+===================================================== */
+
+.header__search-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.header__search-icon img {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+.header__search:hover .header__search-icon {
+    transform: scale(1.08);
+}
+
+
+/* =====================================================
+   SEARCH SHORTCUT
+===================================================== */
+
+.header__search-shortcut {
+    padding: 4px 10px;
+    background: #F1F5F9;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    color: #64748B;
+    font-weight: var(--fw-medium);
+    white-space: nowrap;
+    transition: 0.25s;
+}
+
+.header__search:hover .header__search-shortcut {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+
+/* =====================================================
+   SEARCH RESULTS
+===================================================== */
+
+.header__search-results {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   SEARCH RESULT
+===================================================== */
+
+.header__search-result {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    text-align: right;
+    cursor: pointer;
+    transition: background-color var(--transition-normal);
+}
+
+.header__search-result:hover {
+    background: var(--color-primary-light);
+}
+
+.header__search-result--active {
+    background-color: var(--color-primary-light);
+}
+
+
+/* =====================================================
+   RESULT CONTENT
+===================================================== */
+
+.header__search-result-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.header__search-result-title {
+    overflow: hidden;
+    color: var(--color-text);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.header__search-result-description {
+    color: var(--color-text-secondary);
+    font-size: var(--fs-xs);
+}
+
+
+/* =====================================================
+   RESULT TYPE
+===================================================== */
+
+.header__search-result-type {
+    flex-shrink: 0;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: var(--fs-xs);
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   SEARCH EMPTY STATE
+===================================================== */
+
+.header__search-empty {
+    padding: var(--space-6);
+    color: var(--color-text-secondary);
+    font-size: var(--fs-sm);
+    text-align: center;
+}
+
+
+/* =====================================================
+   SEARCH TARGET HIGHLIGHT
+===================================================== */
+
+.search-target--highlight {
+    padding: 0 2px;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: 4px;
+    font-weight: var(--fw-bold);
+    animation: search-target-highlight 1.8s ease;
+}
+
+@keyframes search-target-highlight {
+    0% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(1.015);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(1.01);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+.profile {
+    position: relative;
+}
+
+
+/* =====================================================
+   PROFILE BUTTON
+===================================================== */
+
+.header__profile {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition:
+        background var(--transition-normal),
+        transform var(--transition-normal);
+}
+
+.header__profile:hover {
+    background: #F8FAFC;
+}
+
+
+/* =====================================================
+   PROFILE AVATAR
+===================================================== */
+
+.header__profile img {
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-full);
+    border: 2px solid #EEF2FF;
+    object-fit: cover;
+    box-shadow: var(--shadow-sm);
+    transition:
+        transform var(--transition-normal),
+        border-color var(--transition-normal);
+}
+
+.header__profile:hover img {
+    transform: rotate(-6deg) scale(1.06);
+    border-color: var(--color-primary);
+}
+
+
+/* =====================================================
+   PROFILE NAME
+===================================================== */
+
+.header__profile h3 {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    color: var(--color-text);
+    line-height: 1.3;
+    transition: color var(--transition-fast);
+}
+
+.header__profile:hover h3 {
+    color: var(--color-primary);
+}
+
+.header__profile p {
+    margin-top: var(--space-1);
+    font-size: var(--fs-xs);
+    color: var(--color-text-secondary);
+}
+
+
+/* =====================================================
+   PROFILE ONLINE STATUS
+===================================================== */
+
+.header__profile::after {
+    content: "";
+    position: absolute;
+    bottom: var(--space-2);
+    right: 38px;
+    width: 10px;
+    height: 10px;
+    background: var(--color-success);
+    border: 2px solid var(--color-surface);
+    border-radius: var(--radius-full);
+}
+
+
+/* =====================================================
+   PROFILE DROPDOWN
+===================================================== */
+
+.profile__dropdown {
+    position: absolute;
+    top: calc(100% + var(--space-3));
+    left: 0;
+    width: 180px;
+    background: var(--color-surface);
+    border: 1px solid var(--header-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-2) 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(var(--space-2));
+    transition:
+        opacity var(--transition-normal),
+        transform var(--transition-normal),
+        visibility var(--transition-normal);
+    z-index: var(--z-dropdown);
+}
+
+.profile--open .profile__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   PROFILE DROPDOWN ARROW
+===================================================== */
+
+.profile__dropdown::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    right: var(--space-4);
+    width: 14px;
+    height: 14px;
+    background: var(--color-surface);
+    border-left: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   PROFILE DROPDOWN LINKS
+===================================================== */
+
+.profile__dropdown a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 var(--space-4);
+    color: #334155;
+    text-decoration: none;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.profile__dropdown a:hover {
+    background: #F8FAFC;
+    color: var(--color-primary);
+}
+
+.profile__dropdown a::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+    position: absolute;
+    left: var(--space-3);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.profile__dropdown a:hover::after {
+    opacity: 1;
+}
+
+
+/* =====================================================
+   NOTIFICATION
+===================================================== */
+
+.notification {
+    position: relative;
+}
+
+
+/* =====================================================
+   NOTIFICATION BADGE
+===================================================== */
+
+.header__badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: var(--radius-full);
+    background: var(--color-danger);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--color-surface);
+    animation: badgePulse 2.5s infinite;
+}
+
+@keyframes badgePulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================
+   NOTIFICATION DROPDOWN
+===================================================== */
+
+.notification__dropdown {
+    position: absolute;
+    top: calc(100% + var(--space-3));
+    left: 0;
+    width: 280px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform:
+        translateY(-10px)
+        scale(0.96);
+    transform-origin: top left;
+    transition:
+        opacity var(--transition-normal),
+        transform var(--transition-normal),
+        visibility var(--transition-normal);
+    overflow: hidden;
+    z-index: var(--z-dropdown);
+}
+
+.notification.notification--open .notification__dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   NOTIFICATION DROPDOWN ARROW
+===================================================== */
+
+.notification__dropdown::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 22px;
+    width: 14px;
+    height: 14px;
+    background: var(--color-surface);
+    border-left: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    transform: rotate(45deg);
+}
+
+
+/* =====================================================
+   NOTIFICATION HEADER
+===================================================== */
+
+.notification__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:
+        var(--space-4)
+        var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.notification__header h3 {
+    margin: 0;
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    color: var(--color-text);
+}
+
+.notification__header a {
+    color: var(--color-primary);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+}
+
+.notification__header a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   NOTIFICATION ITEM
+===================================================== */
+
+.notification__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-5);
+    border-bottom: 1px solid #F1F5F9;
+    cursor: pointer;
+    transition:
+        background var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.notification__item:last-child {
+    border-bottom: none;
+}
+
+.notification__item:hover {
+    background: #F8FAFC;
+    transform: translateX(-4px);
+}
+
+
+/* =====================================================
+   NOTIFICATION ICON
+===================================================== */
+
+.notification__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: #EEF2FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: transform var(--transition-normal);
+}
+
+.notification__item:hover .notification__icon {
+    transform: scale(1.08);
+}
+
+.notification__icon img {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* =====================================================
+   NOTIFICATION CONTENT
+===================================================== */
+
+.notification__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.notification__item h4 {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--color-text);
+}
+
+.notification__item span {
+    font-size: var(--fs-xs);
+    color: var(--color-text-secondary);
+}
+
+
+/* =====================================================
+   NOTIFICATION SCROLLBAR
+===================================================== */
+
+.notification__dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notification__dropdown::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 20px;
+}
+
+
+/* =====================================================
+   RESPONSIVE - LARGE TABLET
+===================================================== */
+
+@media (max-width: 1200px) {
+    .header__search {
+        width: 320px;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media (max-width: 992px) {
+    .header {
+        padding: 0 var(--space-4);
+    }
+
+    .header__search {
+        width: 220px;
+    }
+
+    .header__profile p {
+        display: none;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+    .header {
+        height: 64px;
+    }
+
+    .header__search {
+        display: none;
+    }
+
+    .header__profile h3 {
+        display: none;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE - SMALL MOBILE
+===================================================== */
+
+@media (max-width: 576px) {
+    .header {
+        padding: 0 14px;
+    }
+
+    .header__left,
+    .header__right {
+        gap: 10px;
+    }
+
+    .header__menu-btn,
+    .header__notification,
+    .header__theme-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header__profile img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .profile__dropdown {
+        width: 220px;
+    }
+
+    .notification__dropdown {
+        width: 280px;
+    }
+}
+
+
+/* =====================================================
+   AUTH MODAL
+===================================================== */
+
+.auth-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: var(--z-modal);
+    transition:
+        opacity var(--transition-normal),
+        visibility var(--transition-normal);
+}
+
+.auth-modal--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   AUTH MODAL BACKDROP
+===================================================== */
+
+.auth-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(4px);
+}
+
+
+/* =====================================================
+   AUTH MODAL DIALOG
+===================================================== */
+
+.auth-modal__dialog {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-8);
+    transform:
+        translateY(16px)
+        scale(0.96);
+    transition: transform var(--transition-normal);
+}
+
+.auth-modal--open .auth-modal__dialog {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   AUTH MODAL CLOSE
+===================================================== */
+
+.auth-modal__close {
+    position: absolute;
+    top: var(--space-4);
+    left: var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-family: inherit;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.auth-modal__close:hover {
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+
+/* =====================================================
+   AUTH MODAL HEADER
+===================================================== */
+
+.auth-modal__header {
+    text-align: center;
+    margin-bottom: var(--space-6);
+}
+
+.auth-modal__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    margin: 0 auto var(--space-4);
+    border-radius: var(--radius-full);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 24px;
+    font-weight: var(--fw-bold);
+}
+
+.auth-modal__title {
+    margin: 0;
+    color: var(--color-text);
+    font-size: var(--fs-title);
+    font-weight: var(--fw-bold);
+}
+
+.auth-modal__description {
+    margin-top: var(--space-2);
+    color: var(--color-text-secondary);
+    font-size: var(--fs-sm);
+}
+
+
+/* =====================================================
+   AUTH MODAL FORM
+===================================================== */
+
+.auth-modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.auth-modal__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.auth-modal__label {
+    color: var(--color-text);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+}
+
+.auth-modal__input {
+    width: 100%;
+    height: 48px;
+    padding: 0 var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    outline: none;
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.auth-modal__input::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+}
+
+.auth-modal__input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.auth-modal__input--error {
+    border-color: var(--color-danger);
+}
+
+.auth-modal__input--error:focus {
+    box-shadow: 0 0 0 3px var(--color-danger-bg);
+}
+
+
+/* =====================================================
+   AUTH MODAL ERRORS
+===================================================== */
+
+.auth-modal__error {
+    min-height: 16px;
+    color: var(--color-danger);
+    font-size: var(--fs-xs);
+}
+
+.auth-modal__general-error {
+    color: var(--color-danger);
+    font-size: var(--fs-sm);
+    text-align: center;
+}
+
+
+/* =====================================================
+   AUTH MODAL SUBMIT
+===================================================== */
+
+.auth-modal__submit {
+    width: 100%;
+    height: 48px;
+    margin-top: var(--space-2);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    background: var(--color-primary);
+    color: var(--color-surface);
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    cursor: pointer;
+    transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.auth-modal__submit:hover {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+.auth-modal__submit:active {
+    transform: translateY(1px);
+}
+
+
+/* =====================================================
+   AUTH MODAL BODY LOCK
+===================================================== */
+
+body.auth-modal-open {
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   PROFILE AUTH ACTIONS
+========================================== */
+
+.profile__auth {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+
+/* ==========================================
+   LOGIN / REGISTER BUTTONS
+========================================== */
+
+.profile__login,
+.profile__register {
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 var(--space-4);
+
+    border-radius: var(--radius-md);
+
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+.profile__login {
+    border: 1px solid var(--color-border);
+
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+.profile__login:hover {
+    border-color: var(--color-primary);
+
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.profile__login:active,
+.profile__register:active {
+    transform: translateY(1px);
+}
+
+
+/* ==========================================
+   REGISTER
+========================================== */
+
+.profile__register {
+    border: 1px solid var(--color-primary);
+
+    background: var(--color-primary);
+    color: #fff;
+
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.18);
+}
+
+.profile__register:hover {
+    border-color: var(--color-primary-hover);
+
+    background: var(--color-primary-hover);
+
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.24);
+}
+
+
+/* ==========================================
+   PROFILE AVATAR
+========================================== */
+
+.profile__avatar {
+    position: relative;
+
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+}
+
+.profile__avatar img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border-radius: var(--radius-full);
+    border: 2px solid #EEF2FF;
+
+    object-fit: cover;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition-normal),
+        border-color var(--transition-normal);
+}
+
+.header__profile:hover .profile__avatar img {
+    transform: rotate(-6deg) scale(1.06);
+
+    border-color: var(--color-primary);
+}
+
+
+/* ==========================================
+   PROFILE INFO
+========================================== */
+
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.profile__info h3 {
+    margin: 0;
+
+    color: var(--color-text);
+
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+
+    line-height: 1.3;
+
+    transition: color var(--transition-fast);
+}
+
+.header__profile:hover .profile__info h3 {
+    color: var(--color-primary);
+}
+
+.profile__info p {
+    margin: 0;
+
+    color: var(--color-text-secondary);
+
+    font-size: var(--fs-xs);
+}
+
+
+/* ==========================================
+   ONLINE STATUS
+========================================== */
+/* 
+.profile__online {
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: 10px;
+    height: 10px;
+
+    background: var(--color-success);
+
+    border: 2px solid var(--color-surface);
+    border-radius: var(--radius-full);
+} */
+
+
+/* ==========================================
+   PROFILE DROPDOWN
+========================================== */
+
+.profile__dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ==========================================
+   DROPDOWN LINKS
+========================================== */
+
+.profile__dropdown a,
+.profile__logout {
+    position: relative;
+
+    width: 100%;
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 var(--space-4);
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--color-text);
+
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+
+    text-align: right;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+
+/* ==========================================
+   DROPDOWN HOVER
+========================================== */
+
+.profile__dropdown a:hover,
+.profile__logout:hover {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+
+/* ==========================================
+   DROPDOWN ACTIVE INDICATOR
+========================================== */
+
+.profile__dropdown a::after,
+.profile__logout::after {
+    content: "";
+
+    position: absolute;
+    left: var(--space-3);
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: var(--radius-full);
+
+    background: var(--color-primary);
+
+    opacity: 0;
+
+    transition: opacity var(--transition-fast);
+}
+
+.profile__dropdown a:hover::after,
+.profile__logout:hover::after {
+    opacity: 1;
+}
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+.profile__logout {
+    border-top: 1px solid var(--color-border);
+
+    color: var(--color-danger);
+
+    font-weight: var(--fw-semibold);
+}
+
+.profile__logout::after {
+    background: var(--color-danger);
+}
+
+.profile__logout:hover {
+    background: var(--color-danger-bg);
+    color: var(--color-danger);
+}
+
+
+/* ==========================================
+   GUEST PROFILE - RESPONSIVE
+========================================== */
+
+@media (max-width: 576px) {
+    .profile__auth {
+        gap: var(--space-2);
+    }
+
+    .profile__login,
+    .profile__register {
+        height: 40px;
+        padding: 0 var(--space-3);
+
+        font-size: var(--fs-xs);
+    }
+}
+
+
+/* ==========================================
+   PROFILE RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+    .profile__avatar {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* =====================================================
+   AUTH MODAL RESPONSIVE
+===================================================== */
+
+@media (max-width: 576px) {
+    .auth-modal {
+        padding: var(--space-4);
+    }
+
+    .auth-modal__dialog {
+        padding: var(--space-6);
+    }
+}

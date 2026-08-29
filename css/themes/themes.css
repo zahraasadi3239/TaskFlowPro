@@ -1,0 +1,27 @@
+
+/* ========================================
+   Dark Theme
+======================================== */
+
+[data-theme="dark"] {
+
+    /* Background & Surface */
+
+    --color-background: #0F172A;
+    --color-surface: #1E293B;
+    --color-surface-hover: #334155;
+
+
+    /* Text */
+
+    --color-text: #F8FAFC;
+    --color-text-secondary: #CBD5E1;
+    --color-text-muted: #94A3B8;
+
+
+    /* Borders */
+
+    --color-border: #334155;
+    --color-border-light: #475569;
+}
+

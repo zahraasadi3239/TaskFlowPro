@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کارینو | داشبورد مدیریت پروژه</title>
+    
+<link rel="stylesheet" href="./css/base/variables.css">
+<link rel="stylesheet" href="./css/themes/themes.css">
+<link rel="stylesheet" href="./css/base/reset.css">
+<link rel="stylesheet" href="./css/base/typography.css">
+<link rel="stylesheet" href="./css/base/globals.css">
+
+<link rel="stylesheet" href="./css/layout/app.css">
+<link rel="stylesheet" href="./css/layout/sidebar.css">
+<link rel="stylesheet" href="./css/layout/header.css">
+
+<link rel="stylesheet" href="./css/components/card.css">
+<link rel="stylesheet" href="./css/components/button.css">
+<link rel="stylesheet" href="./css/components/dropdown.css">
+<!-- <link rel="stylesheet" href="./css/components/avatar.css"> -->
+<link rel="stylesheet" href="./css/components/badge.css">
+
+<link rel="stylesheet" href="./css/layout/dashboard.css">
+
+<link rel="stylesheet" href="./css/responsive/tablet.css">
+<link rel="stylesheet" href="./css/responsive/mobile.css">
+</head>
+<body>
+    <div class="app">
+      
+            <aside class="sidebar">
+            <div class="sidebar__brand">
+                <div class="sidebar__logo">
+                    <img src="./assets/icons/check.svg" alt="check"/>
+                </div>
+                <div class="sidebar__content">
+                    <h1 class="sidebar__title">کارینو</h1>
+                    <p class="sidebar__subtitle">مدیریت هوشمندپروژه ها</p>
+               
+               <span class="sidebar__badge"></span></div>
+            </div>
+<nav class="sidebar__nav">
+<ul class="sidebar__list">
+    <li class="sidebar__item">
+        <a href="#" class="sidebar__link  sidebar__link--active">
+            <span class="sidebar__icon">
+                <img src="./assets/icons/house.svg" alt="home"/>
+            </span>
+            <span class="sidebar__label">داشبورد</span>
+        </a>
+        </li>
+         <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+            <span class="sidebar__icon">
+                <img src="./assets/icons/list-todo (1).svg"/>
+            </span>
+            <span class="sidebar__label">وظایف من</span>
+        </a>
+         </li>
+          <li class="sidebar__item"><a href="#" class="sidebar__link">
+            <span class="sidebar__icon">
+                <img src="./assets/icons/folder-kanban.svg" alt="folder"/>
+            </span>
+            <span class="sidebar__label">پروژه ها</span>
+        </a></li>
+         
+           <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+            <span class="sidebar__icon">
+                <img src="./assets/icons/calendar-days (1).svg" alt="calender"/>
+            </span>
+            <span class="sidebar__label">تقویم</span>
+        </a>
+           </li>
+          <li class="sidebar__item">
+             <a href="#" class="sidebar__link">
+            <span class="sidebar__icon">
+                <img src="./assets/icons/chart-column-big.svg" alt="chart"/>
+            </span>
+            <span class="sidebar__label">گزارش ها</span>
+        </a>
+          </li>
+         <li class="sidebar__item">
+            <a href="#" class="sidebar__link">
+            <span class="sidebar__icon">
+                <img src="./assets/icons/bell (1).svg" alt="bell"/>
+            </span>
+            <span class="sidebar__label">اعلان ها</span>
+        </a>
+         </li>
+            <li class="sidebar__item">
+                <a href="#" class="sidebar__link">
+            <span class="sidebar__icon">
+                <img src="./assets/icons/settings.svg" alt="setting"/>
+            </span>
+            <span class="sidebar__label">تنظیمات</span>
+        </a>
+            </li>
+         <li class="sidebar__item"><a href="#" class="sidebar__link">
+            <span class="sidebar__icon">
+                <img src="./assets/icons/users.svg" alt="users"/>
+            </span>
+            <span class="sidebar__label">اعضای تیم</span>
+        </a></li> 
+         
+    
+</ul>
+
+</nav>
+      </aside>
+        
+     
+    <main class="main">
+        <div  id="header">
+             <header class="header">
+
+    <div class="header__right">
+
+        <button class="header__menu-btn">
+            <img src="./assets/icons/menu (1).svg" alt="">
+        </button>
+
+        <div class="header__search">
+
+            <img
+                class="header__search-icon"
+                src="./assets/icons/search (1).svg"
+                alt=""
+            >
+
+            <input
+                class="header__search-input"
+                type="text"
+                placeholder="جستجوی پروژه، وظیفه یا عضو تیم..."
+                autocomplete="off"
+                aria-label="جستجو در داشبورد"
+    aria-autocomplete="list"
+    aria-controls="search-results"
+    aria-expanded="false"
+
+            >
+ <div
+        class="header__search-results"
+        id="search-results"
+        role="listbox"
+        hidden>
+    </div>
+            <span class="header__search-shortcut">
+                Ctrl + K
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="header__left">
+
+        <button class="header__theme-btn">
+            <img src="./assets/icons/moon.svg" alt="">
+        </button>
+        <div class="notification">
+
+            <button 
+            class="header__notification"
+            type="button"
+            aria-expanded="false"
+            aria-haspopup="true">
+
+                <img src="./assets/icons/bell (1).svg" alt="">
+
+                <span class="header__badge">
+                   0
+                </span>
+
+            </button>
+
+<div class="notification__dropdown">
+
+                <div class="notification__header">
+
+                    <h3>اعلان‌ها</h3>
+
+                    <a href="#" data-action="mark-all-read">
+                        مشاهده همه
+                    </a>
+
+                </div>
+ <div class="notification__list"></div>
+                <!-- <div class="notification__item">
+
+                   <div class="notification__icon">
+
+    <img src="./assets/icons/check.svg">
+
+</div>
+                    <div>
+
+                        <h4>وظیفه انجام شد</h4>
+
+                        <span>۵ دقیقه پیش</span>
+
+                    </div>
+
+                </div>
+
+                <div class="notification__item">
+
+                  <div class="notification__icon">
+
+    <img src="./assets/icons/check.svg">
+
+</div>
+
+                    <div>
+
+                        <h4>جلسه تا ۳۰ دقیقه دیگر</h4>
+
+                        <span>امروز</span>
+
+                    </div>
+
+                </div>
+
+                <div class="notification__item">
+<div class="notification__icon">
+
+    <img src="./assets/icons/check.svg">
+
+</div>
+
+                    <div>
+
+                        <h4>پروژه جدید ایجاد شد</h4>
+
+                        <span>دیروز</span>
+
+                    </div>
+
+                </div> -->
+
+            </div>
+</div>
+
+ <div class="profile">
+
+            <!-- <div class="header__profile">
+
+                <img src="./assets/images/Front-End Developer.svg" alt="">
+
+                <div>
+
+                    <h3>زهرا اسدی</h3>
+
+                    <p>Front-End Developer</p>
+
+                </div>
+
+            </div> -->
+
+            <!-- <div class="profile__dropdown">
+
+                <a href="#">پروفایل</a>
+
+                <a href="#">تنظیمات</a>
+
+                <a href="#">ویرایش حساب</a>
+
+                <a href="#">خروج</a>
+
+            </div> -->
+
+        </div>
+
+    </div>
+
+</header>
+        </div>
+    
+<section class="dashboard">
+                <div class="stats">
+                    <article class="stat-card stat-card--primary">
+                        <div class="stat-card__header">
+                            <div class="stat-card__icon">
+                                <img src="./assets/icons/list-todo (1).svg" alt="کل وظایف" />
+
+                            </div>
+                            <button class="stat-card__menu">
+                                <img src="./assets/icons/ellipsis.svg">
+                            </button>
+                        </div>
+                        <div class="stat-card__body">
+                            <h2 class="stat-card__number"> ۲۴</h2>
+                            <p class="stat-card__title"> کل وظایف</p>
+                        </div>
+                        <div class="stat-card__footer">
+                            <span class="stat-card__change">
+                                 ▲ ۱۲٪ نسبت به ماه قبل
+                            </span>
+                            <span class="stat-card__time">
+                                امروز</span>
+                        </div>
+                    </article>
+                      <article class="stat-card stat-card--success">
+                        <div class="stat-card__header">
+                            <div class="stat-card__icon">
+                                <img src="./assets/icons/circle-check-big (1).svg" alt="کل وظایف" />
+
+                            </div>
+                            <button class="stat-card__menu">
+                                <img src="./assets/icons/ellipsis.svg">
+                            </button>
+                        </div>
+                        <div class="stat-card__body">
+                            <h2 class="stat-card__number">۱۶</h2>
+                            <p class="stat-card__title">انجام شده</p>
+                        </div>
+                        <div class="stat-card__footer">
+                            <span class="stat-card__change">
+                                 ▲ ۲۰٪نسبت به ماه قبل
+                            </span>
+                            <span class="stat-card__time"> امروز
+
+                            </span>
+                        </div>
+                      </article>
+                        <article class="stat-card stat-card--warning">
+                            <div class="stat-card__header">
+                            <div class="stat-card__icon">
+                                <img src="./assets/icons/clock-3.svg" alt="کل وظایف" />
+
+                            </div>
+                            <button class="stat-card__menu">
+                                <img src="./assets/icons/ellipsis.svg">
+                            </button>
+                        </div>
+                        <div class="stat-card__body">
+                            <h2 class="stat-card__number">۸</h2>
+                            <p class="stat-card__title">در حال انجام</p>
+                        </div>
+                        <div class="stat-card__footer">
+                            <span class="stat-card__change">
+                                 ▼ ۵٪ نسبت به ماه قبل
+                            </span>
+                            <span class="stat-card__time"> امروز
+
+                            </span>
+                        </div>
+                        </article>
+                          <article class="stat-card stat-card--danger">
+                            <div class="stat-card__header">
+                            <div class="stat-card__icon">
+                                <img src="./assets/icons/triangle-alert.svg" alt="کل وظایف" />
+
+                            </div>
+                            <button class="stat-card__menu">
+                                <img src="./assets/icons/ellipsis.svg">
+                            </button>
+                        </div>
+                        <div class="stat-card__body">
+                            <h2 class="stat-card__number">۳</h2>
+                            <p class="stat-card__title">دارای تأخیر</p>
+                        </div>
+                        <div class="stat-card__footer">
+                            <span class="stat-card__change">
+                                 ▲ ۲٪نسبت به ماه قبل
+                            </span>
+      
+                            <span class="stat-card__time">
+                                  امروز
+                            </span>
+                        </div>
+                          </article>
+                  </div>
+         <section class="dashboard-content">
+                    <section class="tasks">
+                        <div class="tasks__header">
+                            <div>
+                                <h2 class="tasks__title">وظایف امروز</h2>
+                                <p class="tasks__subtitle"></p>
+                            </div>
+                            <button  class="task__add" type="button" data-action="add-task">
+                                + افزودن وظیفه
+                            </button>
+                        </div>
+                        <div class="task__list">
+                            <!-- <article class="task task--progress">
+                                <div class="task__left">
+                                    <label class="task__checkbox">
+                                        <input type="checkbox"/>
+                                        <span class="task__checkmark">
+                                            <img src="./assets/icons/check.svg" alt="check"/>
+                                        </span>
+                                    </label>
+                                    <div class="task__content">
+                                        <h3 class="task__title">
+                                             طراحی صفحه ورود
+                                        
+                                            </h3>
+                                            <div class="task__badges"> <span class="task__priority task__priority--high">
+                                              اولویت زیاد
+                                            </span>
+                                            <span class="task__status task__status--progress">
+                                                 در حال انجام</span></div>
+                                        
+                                            </div>
+                                </div>
+                                 <div class="task__right">
+                                     <div class="task__meta">
+                                         <span class="task__date">
+                                         امروز</span>
+                                         <img  src="./assets/images/Front-End Developer.svg"class="task__avatar"alt="زهرا">
+                                     </div>
+
+                                   
+                                        </div>
+                                        <button class="task__menu"> <img src="./assets/icons/ellipsis.svg"alt="منو">
+                                        </button>
+       
+                            </article>
+                            <article class="task task--completed">
+                                <div class="task__left">
+                                    <label class="task__checkbox">
+                                        <input type="checkbox"/>
+                                        <span class="task__checkmark">
+                                            <img src="./assets/icons/check.svg" alt="check"/>
+                                        </span>
+                                    </label>
+                                    <div class="task__content">
+                                        <h3 class="task__title">
+                                          پیاده‌سازی صفحه ثبت‌نام
+                                        </h3>
+                                        <div class="task__badges"> <span class="task__priority task__priority--medium">
+                                    اولویت متوسط</span><span class="task__status task__status--completed">
+                                            انجام شده</span></div>
+                                        
+                                         </div>
+                                </div>
+                                 <div class="task__right">
+                                    <span class="task__date">فردا</span>
+                         
+                                <img  src="./assets/images/Front-End Developer.svg"class="task__avatar"alt="زهرا">
+                                        </div>
+                                         <button class="task__menu"><img src="./assets/icons/ellipsis.svg" alt="منو">
+                                </button>
+                            </article>
+                             <article class="task task task--late">
+                                <div class="task__left">
+                                    <label class="task__checkbox">
+                                        <input type="checkbox"/>
+                                        <span class="task__checkmark">
+                                            <img src="./assets/icons/check.svg" alt="check"/>
+                                        </span>
+                                    </label>
+                                    <div class="task__content">
+                                        <h3 class="task__title">
+                                            طراحی داشبورد مدیریت
+                                        </h3>
+                                        <div class="task__badges">
+                                             <span class="task__priority task__priority--low">
+                                        اولویت کم</span>
+                                        <span class="task__status task__status--late">
+                                            دارای تأخیر</span>
+                                        </div>
+                                        
+                                        </div>
+                                </div>
+                                 <div class="task__right"> 
+                                    <div class="task__meta">
+                                        <span class="task__date">
+                                        ۲ روز دیگر
+                                    </span>
+                                         <img  src="./assets/images/Front-End Developer.svg"class="task__avatar"alt="زهرا">
+                                    </div>
+                                    
+                                         
+                                        </div>
+                                        <button class="task__menu">
+                                            <img src="./assets/icons/ellipsis.svg" alt="منو">
+                                        </button>
+                            </article> -->
+                        </div>
+
+                    </section>
+                     <aside class="dashboard-side">
+                    <aside class="activity">
+
+    <div class="activity__header">
+
+        <h2 class="activity__title">
+            فعالیت‌های اخیر
+        </h2> 
+
+        <button class="activity__more"
+        type="button"
+        data-action="show-all-activities">
+            مشاهده همه
+        </button>
+
+    </div>
+
+    <div class="activity__list">
+
+        <!-- آیتم اول -->
+<!-- 
+        <article class="activity-item">
+
+            <img
+                src="./assets/images/Front-End Developer.svg"
+                alt="زهرا"
+                class="activity-item__avatar"
+            >
+ <div class="activity-item__icon">
+        <img src="./assets/icons/list-todo (1).svg" alt="file">
+    </div>
+            <div class="activity-item__content">
+
+                <p class="activity-item__text">
+
+                    <strong>زهرا</strong>
+
+                    وظیفه
+
+                    <span class="activity-item__highlight">
+                        «طراحی صفحه ورود»
+                    </span>
+
+                    را ایجاد کرد.
+
+                </p>
+
+                <span class="activity-item__time">
+
+                    ۵ دقیقه پیش
+
+                </span>
+
+            </div>
+
+        </article> -->
+
+        <!-- آیتم دوم -->
+<!-- 
+        <article class="activity-item">
+
+            <img
+                src="./assets/images/Front-End Developer.svg"
+                alt="زهرا"
+                class="activity-item__avatar"
+            >
+ <div class="activity-item__icon">
+        <img src="./assets/icons/folder-kanban.svg" alt="file">
+    </div>
+            <div class="activity-item__content">
+
+                <p class="activity-item__text">
+
+                    <strong>زهرا</strong>
+
+                    وضعیت پروژه
+
+                    <span class="activity-item__highlight">
+                        داشبورد مدیریت
+                    </span>
+
+                    را تغییر داد.
+
+                </p>
+
+                <span class="activity-item__time">
+
+                    ۲۵ دقیقه پیش
+
+                </span>
+
+            </div>
+
+        </article> -->
+
+        <!-- آیتم سوم -->
+
+        <!-- <article class="activity-item">
+
+            <img
+                src="./assets/images/Front-End Developer.svg"
+                alt="زهرا"
+                class="activity-item__avatar"
+            >
+ <div class="activity-item__icon">
+        <img src="./assets/icons/check.svg" alt="file">
+    </div>
+            <div class="activity-item__content">
+
+                <p class="activity-item__text">
+
+                    <strong>زهرا</strong>
+
+                    فایل جدیدی در پروژه
+
+                    <span class="activity-item__highlight">
+                        کارینو
+                    </span>
+
+                    بارگذاری کرد.
+
+                </p>
+
+                <span class="activity-item__time">
+
+                    دیروز
+
+                </span>
+
+            </div>
+
+        </article> -->
+
+    </div>
+
+                    </aside>
+         <section class="calendar">
+
+    <!-- Calendar Header -->
+    <div class="calendar__header">
+
+        <h3 class="calendar__title">
+            تیر ۱۴۰۵
+        </h3>
+
+        <div class="calendar__actions">
+
+            <button
+                class="calendar__button"
+                aria-label="ماه قبل">
+
+                <img
+                    src="./assets/icons/chevrons-right.svg"
+                    alt="ماه قبل"
+                    class="calendar__icon">
+
+            </button>
+
+            <button
+                class="calendar__button"
+                aria-label="ماه بعد">
+
+                <img
+                    src="./assets/icons/chevrons-left.svg"
+                    alt="ماه بعد"
+                    class="calendar__icon">
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Week Days -->
+
+    <div class="calendar__weekdays">
+
+        <span class="calendar__weekday">ش</span>
+        <span class="calendar__weekday">ی</span>
+        <span class="calendar__weekday">د</span>
+        <span class="calendar__weekday">س</span>
+        <span class="calendar__weekday">چ</span>
+        <span class="calendar__weekday">پ</span>
+        <span class="calendar__weekday">ج</span>
+
+    </div>
+
+    <!-- Days -->
+
+    <div class="calendar__days">
+
+        <div class="calendar__day calendar__day--muted">
+            <span class="calendar__number">۳۱</span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۱</span>
+        </div>
+
+        <div class="calendar__day calendar__day--active">
+            <span class="calendar__number">۲</span>
+            <span class="calendar__dot calendar__dot--success"></span>
+        </div>
+
+        <div class="calendar__day calendar__day--today">
+            <span class="calendar__number">۳</span>
+            <span class="calendar__dot calendar__dot--warning"></span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۴</span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۵</span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۶</span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۷</span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۸</span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۹</span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۱۰</span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۱۱</span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۱۲</span>
+        </div>
+
+        <div class="calendar__day">
+            <span class="calendar__number">۱۳</span>
+        </div>
+
+    </div>
+
+           </section>
+          <section class="meetings">
+<div class="meetings__header">
+    <h2 class="meetings__title">
+        جلسات پیش رو
+    </h2>
+    <a href="#" class="meetings__link">
+        مشاهده همه
+    </a>
+</div>
+<div class="meetings__list">
+    <article class="meeting-card">
+        <span class="meeting-card__accent meeting-card__accent--purple">
+
+        </span>
+        <div class="meeting-card__content">
+            <h3 class="meeting-card__title">جلسه طراحی داشبورد</h3>
+            <div class="meeting-card__time">
+                <img src="./assets/icons/clock-3.svg" alt="clock"  class="meeting-card__icon"/>
+                <span>۱۰:۰۰ - ۱۱:۰۰</span>
+            </div>
+            <div class="meeting-card__footer">
+                <div class="meeting-card__avatars">
+                    <img src="./assets/images/Front-End Developer.svg" alt="avatar"/>
+                    <img src="./assets/images/UI Designer.svg" alt="avatar"/>
+                    <img src="./assets/images/Product Manager.svg" alt="avatar"/>
+
+
+                </div>
+                <span class="meeting-card__status meeting-card__status--online"> آنلاین</span>
+
+            </div>
+        </div>
+    </article>
+    <article class="meeting-card">
+        <span class="meeting-card__accent meeting-card__accent--orange"></span>
+        <div class="meeting-card__content">
+            <h3 class="meeting-card__title">جلسه اسپرینت</h3>
+            <div class="meeting-card__time">
+
+                    <img
+                        src="./assets/icons/clock-3.svg"
+                        alt="Clock"
+                        class="meeting-card__icon"
+                    >
+
+                    <span>
+                        ۱۳:۳۰ - ۱۴:۳۰
+                    </span>
+
+            </div>
+             <div class="meeting-card__footer">
+
+                    <div class="meeting-card__avatars">
+
+                        <img src="./assets/images/Back-End Developer.svg" alt="">
+                        <img src="./assets/images/QA Engineer.svg" alt="">
+
+                    </div>
+
+                    <span class="meeting-card__status meeting-card__status--office">
+                        حضوری
+                    </span>
+
+            </div>
+
+        </div>
+    </article>
+</div>
+                  </section>
+                     </aside>
+
+</section>
+<section class="projects-team">
+    <section class="projects">
+
+                    <div class="projects__header">
+                        <h2 class="projects__title">
+                   پروژه های فعال 
+                        </h2>
+                        <button class="projects__button">
+                            مشاهده همه
+                        </button>
+                    </div>
+                    <div class="projects__grid">
+                        <!-- <article class="project-card">
+                            <div class="project-card__header">
+                                <h3 class="project-card__title">
+                                    کارینو
+                                </h3>
+                                <span class="project-card__status">
+                                    فعال
+                                </span>
+                                
+
+                            </div>
+                            <p class="project-card__description">مدیریت هوشمند پروژه‌های برنامه‌نویسی
+                                    
+                                </p>
+                            <div class="project-card__progress">
+                                <div class="project-card__progress-bar"
+                                style="width: 70%;">
+
+                                </div>
+                            </div>
+                            <div class="project-card__footer">
+                                <span class="projects-card__percent">
+                                   ۷۰٪ انجام شده
+                                </span>
+                                <span class="project-card__deadline">۱۲ تیر</span>
+                            </div>
+                        </article> -->
+                    </div>
+
+</section>
+<!-- <section class="team">
+                    <div class="team__header">
+                        <h2 class="team__title">اعضای تیم</h2>
+                        <button class="team__button">
+                            مشاهده همه
+                        </button>
+                    </div>
+                    <div class="team__list">
+                        <article class="member">
+                            <div class="member__info">
+                                <img src="./assets/images/Front-End Developer.svg"
+                            class="member__avatar"
+                            alt="zahra"/>
+                            <div class="member__content">
+                                <h3 class="member__name">زهرا اسدی</h3>
+                                <p class="member__job">
+                                     Front-end Developer
+                                </p>
+                            </div>
+                            </div>
+                            
+                            
+                            <span class="member__status member__status--online">
+                                   <span class="member__dot"></span>
+                                آفلاین</span>
+                        </article>
+                    
+                    
+                        <article class="member">
+                            <div class="member__info">
+                                 <img src="./assets/images/Back-End Developer.svg"
+                            class="member__avatar"
+                            alt="ali"/>
+                            <div class="member__content">
+                                <h3 class="member__name">علی محمدی</h3>
+                                <p class="member__job">
+                                     Back-end
+                                </p>
+                            </div>
+                            </div>
+                           
+                            <span class="member__status member__status--offline">
+                                   <span class="member__dot"></span>آنلاین
+                               </span>
+                        </article>
+                    
+                    
+                        <article class="member">
+                              <div class="member__info">
+                                 <img src="./assets/images/UI Designer.svg"
+                            class="member__avatar"
+                            alt="maryam"/>
+                            <div class="member__content">
+                                <h3 class="member__name">مریم پارسا</h3>
+                                <p class="member__job">
+                                     UI Designer
+                                </p>
+                            </div>
+                              </div>
+                           
+                            <span class="member__status member__status--busy">
+                                
+                                   <span class="member__dot"></span>
+                                مشغول</span>
+                        </article>
+            
+                    
+                        <article class="member">
+                             <div class="member__info">
+                                  <img src="./assets/images/Product Manager.svg"
+                            class="member__avatar"
+                            alt="zahra"/>
+                             <div class="member__content">
+                                <h3 class="member__name">محمد سعیدی</h3>
+                                <p class="member__job">
+                                     Product Manager
+                                </p>
+                            </div>
+                             </div>
+                          
+                           
+                            <span class="member__status member__status--online"> 
+                                   <span class="member__dot"></span>
+                                آنلاین</span>
+                        </article>
+                    </div>
+</section> -->
+
+<section class="team">
+    <div class="team__header">
+        <h2 class="team__title">اعضای تیم</h2>
+
+        <button
+            class="team__button"
+            type="button"
+            data-action="toggle-team"
+        >
+            مشاهده همه
+        </button>
+    </div>
+
+    <div class="team__list"></div>
+</section>
+
+</section>
+<section class="analytics">
+
+    <!-- PROJECT PERFORMANCE -->
+
+    <article class="chart-card chart-card--large">
+
+        <div class="chart-card__header">
+
+            <div>
+                <h2 class="chart-card__title">
+                    عملکرد پروژه‌ها
+                </h2>
+
+                <p class="chart-card__subtitle">
+                    میزان پیشرفت پروژه‌ها
+                </p>
+            </div>
+
+            <button
+                class="chart-card__filter"
+                type="button"
+                data-analytics-filter="projects"
+            >
+                وضعیت فعلی
+            </button>
+
+        </div>
+
+        <div class="chart-card__body">
+
+            <div class="line-chart">
+
+                <div class="line-chart__grid">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="line-chart__points"></div>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <div class="analytics__bottom">
+
+        <!-- TASK PROGRESS -->
+
+        <article class="chart-card">
+
+            <div class="chart-card__header">
+
+                <div>
+                    <h2 class="chart-card__title">
+                        وضعیت وظایف
+                    </h2>
+
+                    <p class="chart-card__subtitle">
+                        توزیع وظایف بر اساس وضعیت
+                    </p>
+                </div>
+
+                <button
+                    class="chart-card__filter"
+                    type="button"
+                    data-analytics-filter="tasks"
+                >
+                    وضعیت فعلی
+                </button>
+
+            </div>
+
+            <div class="chart-card__body">
+
+                <div class="chart-placeholder">
+
+                    <div class="chart-placeholder__bars"></div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- TASK STATUS -->
+
+        <article class="chart-card chart-card--small">
+
+            <div class="chart-card__header">
+
+                <div>
+                    <h2 class="chart-card__title">
+                        نرخ تکمیل وظایف
+                    </h2>
+
+                    <p class="chart-card__subtitle">
+                        نسبت وظایف انجام‌شده
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="donut">
+
+                <div
+                    class="donut__circle"
+                    role="progressbar"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                >
+                    <span class="donut__value">
+                        ۰٪
+                    </span>
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+        </main>
+    </div>
+    <div
+    class="auth-modal"
+    aria-hidden="true"
+></div>
+  <div class="task-modal" hidden>
+
+    <div class="task-modal__overlay"></div>
+
+    <div class="task-modal__content">
+
+        <div class="task-modal__header">
+
+            <h2 class="task-modal__title">
+                افزودن وظیفه
+            </h2>
+
+            <button
+                class="task-modal__close"
+                type="button"
+                aria-label="بستن"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form class="task-modal__form">
+
+            <div class="task-modal__field">
+
+                <label for="task-title">
+                    عنوان وظیفه
+                </label>
+
+                <input
+                    id="task-title"
+                    class="task-modal__input"
+                    type="text"
+                    placeholder="مثلاً طراحی صفحه اصلی"
+                >
+
+            </div>
+
+
+            <div class="task-modal__field">
+
+                <label for="task-priority">
+                    اولویت
+                </label>
+
+                <select
+                    id="task-priority"
+                    class="task-modal__input"
+                >
+
+                    <option value="high">
+                        زیاد
+                    </option>
+
+                    <option value="medium">
+                        متوسط
+                    </option>
+
+                    <option value="low">
+                        کم
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="task-modal__actions">
+
+                <button
+                    type="button"
+                    class="task-modal__cancel"
+                >
+                    انصراف
+                </button>
+
+                <button
+                    type="submit"
+                    class="task-modal__submit"
+                >
+                    افزودن وظیفه
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+  <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
