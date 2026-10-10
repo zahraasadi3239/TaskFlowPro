@@ -1,357 +1,126 @@
-# TaskFlowPro
+# TaskFlowPro — Task Management Dashboard
 
-> A modern RTL task management dashboard built with HTML, CSS, and Vanilla JavaScript.
+A responsive, Persian RTL task management dashboard built with **HTML5, CSS3, and Vanilla JavaScript**. TaskFlowPro focuses on a clean user interface, reusable styling, and interactive task management features.
 
-TaskFlowPro is a responsive Persian RTL dashboard designed to demonstrate modern front-end development practices, component-based UI organization, reusable design tokens, interactive JavaScript features, and responsive dashboard layouts.
+## 🔗 Links
 
-The project was built with a focus on clean UI, maintainable code, accessibility, and a production-oriented front-end structure.
-
----
+- **Live Demo:** https://task-flow-pro-nu.vercel.app
+- **GitHub Repository:** https://github.com/zahraasadi3239/TaskFlowPro
 
 ## ✨ Features
 
-### Dashboard
+- **Responsive Layout:** Adapts to desktop, tablet, and mobile screen sizes.
+- **Persian RTL Interface:** Designed for right-to-left layouts and Persian-language content.
+- **Task Management:** Add, edit, and delete tasks through the dashboard interface.
+- **Task Status:** Manage task completion and view task-related information.
+- **Dashboard Overview:** Display task statistics and summary information.
+- **Search Interface:** Search and filter dashboard content.
+- **Sidebar Interaction:** Toggle the sidebar between expanded and collapsed states.
+- **Theme Support:** Switch between light and dark themes.
+- **Notifications:** Display notification-related interface elements.
+- **Task Modal:** Use a modal interface for task-related actions.
+- **Keyboard Interaction:** Access the search interface using `Ctrl + K`.
+- **Persistent Client-Side State:** Use browser storage to preserve supported interface and user data between sessions.
 
-* Responsive RTL dashboard
-* Statistics cards
-* Task management
-* Activity feed
-* Calendar
-* Meetings
-* Projects
-* Team members
-* Analytics section
+## 🛠️ Technologies Used
 
-### Task Management
+- HTML5
+- CSS3
+- Vanilla JavaScript (ES6+)
+- CSS Custom Properties
+- Flexbox and CSS Grid
+- Responsive Design and Media Queries
+- Local Storage
+- Git and GitHub
+- Vercel
 
-* Display task information
-* Task status
-* Task priority
-* Task metadata
-* Task completion
-* Add new tasks
-* Task actions
-* Task dropdown menu
-* Empty state handling
+## 🎨 Design and Architecture
 
-### Navigation
+The project uses a modular CSS structure to keep styles organized and maintainable.
 
-* Responsive Sidebar
-* Collapsed Sidebar
-* Persistent Sidebar state
-* Active navigation state
-* Hover interactions
+Key implementation concepts include:
 
-### Header
-
-* Search
-* Keyboard shortcut for search
-* Notifications
-* Notification badge
-* User profile menu
-* Theme switcher
-
-### Theme
-
-* Light theme
-* Dark theme
-* CSS custom properties
-* Centralized design tokens
-* Theme-aware components
-
-### Calendar
-
-* Monthly calendar UI
-* Current day indication
-* Active day state
-* Event indicators
-* Previous/next navigation
-
-### Analytics
-
-* Line chart visualization
-* Analytics bars
-* Progress visualization
-* Donut/progress chart
-* Responsive analytics layout
-
-### Responsive Design
-
-The dashboard adapts to:
-
-* Desktop
-* Laptop
-* Tablet
-* Mobile
-
-The responsive layout uses CSS Grid, Flexbox, media queries, and reusable spacing tokens.
-
----
-
-## 🛠️ Technologies
-
-* HTML5
-* CSS3
-* Vanilla JavaScript
-* CSS Custom Properties
-* CSS Grid
-* Flexbox
-* Responsive Design
-* LocalStorage
-* ES Modules
-
-No front-end framework is required.
-
----
-
-## 🎨 Design System
-
-TaskFlowPro uses a centralized CSS token system.
-
-Examples:
-
-```css
---color-primary
---color-background
---color-surface
---color-text
---color-text-secondary
---color-border
-
---space-1
---space-2
---space-3
---space-4
---space-5
---space-6
-
---radius-sm
---radius-md
---radius-lg
-
---shadow-sm
---shadow-md
---shadow-lg
-
---transition-fast
---transition-normal
-```
-
-This approach makes the UI easier to maintain and keeps the visual language consistent throughout the application.
-
----
+- CSS custom properties for reusable design tokens
+- Component-oriented styling
+- BEM-inspired CSS naming conventions
+- Separation of HTML structure, CSS presentation, and JavaScript behavior
+- Responsive layouts for different screen sizes
+- JavaScript modules and separated data files where appropriate
 
 ## 📁 Project Structure
 
+The repository is organized into HTML, CSS, JavaScript, and supporting assets.
+
 ```text
 TaskFlowPro/
-│
 ├── assets/
-│   ├── icons/
-│   ├── images/
-│   └── fonts/
-│
 ├── css/
-│   ├── base/
-│   │   ├── variables.css
-│   │   ├── themes.css
-│   │   ├── reset.css
-│   │   └── typography.css
-│   │
-│   ├── layout/
-│   │
-│   ├── components/
-│   │
-│   ├── pages/
-│   │
-│   └── responsive/
-│
 ├── js/
-│   ├── components/
-│   ├── data/
-│   ├── utils/
-│   └── main.js
-│
-├── index.html
-├── design-notes.md
-├── README.md
 ├── .gitignore
-└── ...
+├── README.md
+├── design-notes.md
+├── favicon.ico
+└── index.html
 ```
 
-> The exact folder structure may evolve as the project continues to be refined.
-
----
-
-## ⚙️ JavaScript Architecture
-
-The JavaScript code is organized into focused modules.
-
-Examples include:
-
-```text
-dashboard.js
-notification.js
-profile.js
-search.js
-sidebar.js
-theme.js
-calendar.js
-meetings.js
-```
-
-Each module is responsible for a specific feature rather than placing all application logic inside one JavaScript file.
-
-The application entry point initializes the required features after the DOM is ready.
-
----
-
-## 💾 Local Storage
-
-TaskFlowPro uses browser `localStorage` for selected client-side preferences and application state.
-
-Examples include:
-
-* Sidebar collapsed state
-* Theme preference
-* Authentication-related client state
-
-No backend service is required for the current dashboard implementation.
-
----
-
-## 🌙 Dark Mode
-
-Dark mode is implemented using a data attribute:
-
-```html
-<html data-theme="dark">
-```
-
-Theme-specific variables are defined separately from the main design tokens.
-
-Example:
-
-```css
-[data-theme="dark"] {
-    --color-background: #0F172A;
-    --color-surface: #1E293B;
-    --color-text: #F8FAFC;
-}
-```
-
-This allows components to automatically adapt without duplicating component styles.
-
----
-
-## 📱 Responsive Strategy
-
-The project uses a mobile-first-friendly responsive structure based on:
-
-* CSS Grid
-* Flexbox
-* Flexible widths
-* CSS custom properties
-* Media queries
-
-Major dashboard layouts collapse progressively as the viewport becomes smaller.
-
----
-
-## ♿ Accessibility
-
-Accessibility considerations include:
-
-* Keyboard interaction
-* Visible focus states
-* Semantic HTML
-* Descriptive labels
-* Accessible interactive elements
-* Appropriate image alternative text
-* Escape-key interactions for overlays/dropdowns where applicable
-
-Accessibility will continue to be improved as the project evolves.
-
----
+The `css/` and `js/` directories contain the application's styling and JavaScript code. The `assets/` directory contains supporting project resources.
 
 ## 🚀 Getting Started
+
+### Prerequisites
+
+You need a modern web browser. Visual Studio Code with the Live Server extension is recommended for local development.
+
+### Installation
 
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/zahraasadi3239/TaskFlowPro.git
 ```
 
-Move into the project:
+Navigate to the project directory:
 
 ```bash
 cd TaskFlowPro
 ```
 
-Then open:
+Open `index.html` in your browser, or launch the project using Live Server in Visual Studio Code.
 
-```text
-index.html
-```
+## 📱 Responsive Design
 
-in a browser.
+TaskFlowPro is designed to provide a usable dashboard experience across desktop, tablet, and mobile screen sizes.
 
-If using VS Code, running the project with Live Server is recommended for local development.
+## 🎯 Project Goals
 
----
+This project was developed to practice and demonstrate:
 
-## 🌐 Deployment
-
-TaskFlowPro is designed to be deployable as a static front-end application.
-
-The project can be deployed using platforms such as:
-
-* Vercel
-* GitHub Pages
-* Netlify
-
----
-
-## 📌 Project Status
-
-**Status: Completed — Portfolio Ready**
-
-The main dashboard UI and interactive features have been implemented.
-
-Final deployment and repository configuration are the remaining release steps.
-
----
+- Building an interactive interface with Vanilla JavaScript
+- Organizing front-end code into manageable files
+- Creating reusable and consistent CSS styles
+- Implementing responsive dashboard layouts
+- Working with browser storage
+- Managing a project with Git and GitHub
+- Deploying a front-end project using Vercel
 
 ## 🔮 Future Improvements
 
-Potential future improvements include:
+Potential future enhancements include:
 
-* Backend API integration
-* Persistent database storage
-* User authentication with a real backend
-* Advanced task filtering
-* Drag & drop task management
-* Real-time notifications
-* More advanced analytics
-* TypeScript migration
-* React/Next.js version
-* Automated testing
-
----
+- Automated testing
+- Accessibility improvements
+- Additional task filtering and sorting options
+- Further performance and maintainability improvements
+- Backend integration and user authentication
 
 ## 👩‍💻 Author
 
 **Zahra Asadi**
 
-Front-End Developer
+Junior Front-End Developer interested in building responsive, user-focused web applications with JavaScript, React, and Next.js.
 
-Focused on building modern, responsive, and maintainable web applications with a strong interest in JavaScript, React, Next.js, and modern front-end architecture.
-
----
+- **GitHub:** https://github.com/zahraasadi3239
 
 ## 📄 License
 
-This project is created for educational and portfolio purposes.
-
-```
-```
+This project is available for educational and portfolio purposes. Please contact the author before redistributing or reusing substantial parts of the project.
